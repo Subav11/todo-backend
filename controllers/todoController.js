@@ -33,8 +33,8 @@ const showTodo = async (req, res) => {
 
 const updateTodo = async (req, res) => {
   try {
-    const { status } = req.body;
-    const update = { status };
+    const {task, status } = req.body;
+    const update = { task, status };
     const id = req.params.todoId;
     const result = await todoModel.findByIdAndUpdate(id, update, { new: true });
     if (!result) {
